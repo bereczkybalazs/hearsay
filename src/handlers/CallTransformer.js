@@ -2,7 +2,17 @@ export default {
     transformByDate (calls) {
         let response = []
         calls.forEach(call => {
-            response.push(this.getCall(call))
+            let transformedCall = this.getCall(call)
+            let previousCallByThisNumberIndex = response.findIndex(oldCall => {
+                let isSamePhoneNumber = oldCall.phoneNumber == call.phoneNumber
+                let isSameDayCalled = this.isSameDay(oldCall.callDate, call.callDate)
+                return isSamePhoneNumber && isSameDayCalled
+            })
+            if (previousCallByThisNumberIndex > -1) {
+                response[previousCallByThisNumberIndex].callTimes++
+            } else {
+                response.push(transformedCall)
+            }
         })
         return response
     },

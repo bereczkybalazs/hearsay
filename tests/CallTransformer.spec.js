@@ -10,23 +10,44 @@ const createCaller = (phoneNumber, callDate) => {
     }
 }
 
+const dateOne = 1534287424815
+const dateTwo = 1532287424815
+
+const phoneOne = '202-555-0144'
+
 describe('CallTransformer', function () {
 
     describe('transformByDate ', function () {
 
         it('no multiple calls', function () {
             let calls = []
-            calls.push(createCaller(123, 0))
+            calls.push(createCaller(phoneOne, dateOne))
             let response = CallTransformer.transformByDate(calls)
             assert.equal(response[0].callTimes, 1)
         });
 
+
+        it('increase call time on same day', function () {
+            let calls = []
+            calls.push(createCaller(phoneOne, dateOne))
+            calls.push(createCaller(phoneOne, dateOne))
+            let response = CallTransformer.transformByDate(calls)
+            assert.equal(response[0].callTimes, 2)
+        });
+
+        it('do not increase call time on different day', function () {
+            let calls = []
+            calls.push(createCaller(phoneOne, dateOne))
+            calls.push(createCaller(phoneOne, dateTwo))
+            let response = CallTransformer.transformByDate(calls)
+            assert.equal(response[0].callTimes, 1)
+        });
     });
 
     describe('getCall', function () {
 
         it('has call properties', function () {
-            let caller = createCaller(123, 0)
+            let caller = createCaller(phoneOne, dateOne)
             let call = CallTransformer.getCall(caller)
             assert(call.firstName, caller.firstName)
             assert(call.lastName, caller.lastName)
@@ -35,14 +56,14 @@ describe('CallTransformer', function () {
 
         it ('has callTimes', function () {
             let call = CallTransformer.getCall(
-                createCaller(123, 0)
+                createCaller(phoneOne, dateOne)
             )
             assert(call.callTimes, 1)
         })
 
         it('has date', function () {
             let call = CallTransformer.getCall(
-                createCaller(123, 0)
+                createCaller(phoneOne, dateOne)
             )
             assert(call.callDate, new Date(0))
         })
@@ -53,16 +74,16 @@ describe('CallTransformer', function () {
 
         it('same day', function () {
             let isSameDay = CallTransformer.isSameDay(
-                new Date(0),
-                new Date(0)
+                new Date(dateOne),
+                new Date(dateOne)
             )
             assert.equal(isSameDay, true)
         })
 
         it('different day', function () {
             let isSameDay = CallTransformer.isSameDay(
-                new Date(153992341),
-                new Date(0)
+                new Date(dateOne),
+                new Date(dateTwo)
             )
             assert.equal(isSameDay, false)
         })
