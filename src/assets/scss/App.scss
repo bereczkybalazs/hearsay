@@ -1,6 +1,14 @@
 @import "Colors";
 @import "Header";
+@import "Contacts";
 
 body {
     margin: 0px;
+}
+
+.table {
+    display: table;
+    .cell {
+        display: table-cell;
+    }
 }

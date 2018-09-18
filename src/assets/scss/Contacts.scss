@@ -1,0 +1,29 @@
+.contact-container {
+    width: 60vw;
+    margin: 15px auto;
+    .contact {
+        width: 100%;
+        padding: 15px;
+        border: 1px solid #ccc;
+        margin-bottom: 15px;
+
+        .name {
+            width: 80%;
+            .first-name {
+                margin-right: 5px;
+            }
+            .last-name {
+                font-weight: 600;
+            }
+        }
+        .date {
+            text-align: right;
+            .call-time {
+                margin: 0px 15px;
+            }
+            .right-arrow::before {
+                content: '\25b6';
+            }
+        }
+    }
+}
