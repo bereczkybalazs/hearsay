@@ -22,7 +22,7 @@
         props: {
             firstName: String,
             lastName: String,
-            callTimes: String,
+            callTimes: Number,
             date: String
         }
     }

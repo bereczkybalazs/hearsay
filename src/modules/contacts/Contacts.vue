@@ -1,18 +1,31 @@
 <template>
     <div class="contact-container">
-        <ContactItem
-            first-name="john"
-            last-name="doe"
-            call-times="3"
-            date="2018-09-18"
+        <ContactItem v-for="contact in contacts"
+            :first-name="contact.firstName"
+            :last-name="contact.lastName"
+            :call-times="contact.callTimes"
+            :date="contact.callDate.toDateString()"
         />
     </div>
 </template>
 
 <script>
     import ContactItem from "./ContactItem";
+    import CallTransformer from "../../handlers/CallTransformer"
     export default {
         name: "Contacts",
-        components: {ContactItem}
+        mounted () {
+            this.contacts = CallTransformer.transformByDate(
+                this.$root.callHistory
+            )
+        },
+        components: {
+            ContactItem
+        },
+        data: function () {
+            return {
+                contacts: []
+            }
+        }
     }
 </script>
