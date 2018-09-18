@@ -1,3 +1,5 @@
+import sort from 'fast-sort';
+
 export default {
     transformByDate (calls) {
         let response = []
@@ -14,7 +16,7 @@ export default {
                 response.push(transformedCall)
             }
         })
-        return response
+        return sort(response).desc(['callTimes', 'callDate'])
     },
     getCall (call) {
         let response = call

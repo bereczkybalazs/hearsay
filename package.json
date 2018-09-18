@@ -9,6 +9,7 @@
     "test": "BABEL_ENV=test mocha --compilers js:babel-core/register ./tests/**/*.spec.js --watch"
   },
   "dependencies": {
+    "fast-sort": "^1.5.4",
     "i": "^0.3.6",
     "npm": "^6.4.0",
     "vue": "^2.5.17"

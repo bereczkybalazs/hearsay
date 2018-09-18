@@ -14,6 +14,7 @@ const dateOne = 1534287424815
 const dateTwo = 1532287424815
 
 const phoneOne = '202-555-0144'
+const phoneTwo = '202-555-1234'
 
 describe('CallTransformer', function () {
 
@@ -41,6 +42,19 @@ describe('CallTransformer', function () {
             calls.push(createCaller(phoneOne, dateTwo))
             let response = CallTransformer.transformByDate(calls)
             assert.equal(response[0].callTimes, 1)
+        });
+
+        it('sort by call times as primary then days', function () {
+            let calls = []
+            calls.push(createCaller(phoneOne, dateTwo))
+            calls.push(createCaller(phoneTwo, dateOne))
+            calls.push(createCaller(phoneOne, dateOne))
+            calls.push(createCaller(phoneOne, dateOne))
+            let response = CallTransformer.transformByDate(calls)
+            assert.equal(response[0].phoneNumber, phoneOne)
+            assert.equal(response[0].callTimes, 2)
+            assert.equal(response[1].phoneNumber, phoneTwo)
+            assert.equal(response[2].phoneNumber, phoneOne)
         });
     });
 
