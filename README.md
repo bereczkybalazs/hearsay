@@ -1,6 +1,24 @@
 # My favorite contacts
 Take-home assignment for Hearsay Budapest Sites Developer Candidates
 
+## Commands
+Before you start working please install the npm packages:
+```
+npm install
+```
+To build and run your application
+```
+npm run serve
+```
+To run tests
+```
+npm run test
+```    
+To build application
+```
+npm run build
+```    
+
 ## General guideline
 - You have 24 hours to send back your solution, you should be able to complete the actual work in 2-3 hours.
 - Make sure:
@@ -37,16 +55,3 @@ If you are comfortable with webpack and its configuration then change the applic
 
 ## Technical help
 We created an environment for you to accomplish this task. 
-- Before you start working please install the npm packages:
-```
-npm install
-```
-- To build and run your application
-```
-npm start
-```    
-- This command will transpile and bundle your code into ```public/bundle.js```, which will be loaded by the browser
-  It will also start a local server, you may access your application at ```http://localhost:8888```
-- The project is set up with babel and webpack, which allows you to use most of the ES6 features
-
-
