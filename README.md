@@ -1,6 +1,8 @@
 # My favorite contacts
 Take-home assignment for Hearsay Budapest Sites Developer Candidates
 
+[![Build Status](https://travis-ci.org/bereczkybalazs/hearsay.svg?branch=master)](https://travis-ci.org/bereczkybalazs/hearsay)
+
 ## Commands
 Before you start working please install the npm packages:
 ```
