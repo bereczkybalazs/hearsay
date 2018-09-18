@@ -6,7 +6,8 @@
     "serve": "BABEL_ENV=vue vue-cli-service serve",
     "build": "BABEL_ENV=vue vue-cli-service build",
     "lint": "BABEL_ENV=vue vue-cli-service lint",
-    "test": "BABEL_ENV=test mocha --compilers js:babel-core/register ./tests/**/*.spec.js --watch"
+    "test": "BABEL_ENV=test mocha --compilers js:babel-core/register ./tests/**/*.spec.js",
+    "test --watch": "BABEL_ENV=test mocha --compilers js:babel-core/register ./tests/**/*.spec.js --watch"
   },
   "dependencies": {
     "fast-sort": "^1.5.4",
@@ -15,8 +16,12 @@
     "vue": "^2.5.17"
   },
   "devDependencies": {
+    "@vue/cli-plugin-babel": "^3.0.1",
+    "@vue/cli-plugin-eslint": "^3.0.1",
+    "@vue/cli-service": "^3.0.1",
     "node-sass": "^4.9.3",
     "sass-loader": "^7.1.0",
+    "vue-template-compiler": "^2.5.17",
     "babel": "6.3.13",
     "babel-core": "6.1.18",
     "babel-preset-es2015": "6.3.13",

@@ -68,7 +68,7 @@ describe('CallTransformer', function () {
         })
 
 
-        it ('has callTimes', function () {
+        it('has callTimes', function () {
             let call = CallTransformer.getCall(
                 createCaller(phoneOne, dateOne)
             )
