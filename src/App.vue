@@ -1,11 +1,15 @@
 <template>
-  <div id="app">
-    hello world!
-  </div>
+    <div id="app">
+        <Header :title="$root.title"/>
+    </div>
 </template>
 
 <script>
-export default {
-    name: 'app',
-}
+    import Header from "./modules/header/Header";
+    export default {
+        name: 'app',
+        components: {
+            Header
+        }
+    }
 </script>
