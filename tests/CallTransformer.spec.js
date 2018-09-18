@@ -49,4 +49,23 @@ describe('CallTransformer', function () {
 
     })
 
+    describe('isSameDay', function () {
+
+        it('same day', function () {
+            let isSameDay = CallTransformer.isSameDay(
+                new Date(0),
+                new Date(0)
+            )
+            assert.equal(isSameDay, true)
+        })
+
+        it('different day', function () {
+            let isSameDay = CallTransformer.isSameDay(
+                new Date(153992341),
+                new Date(0)
+            )
+            assert.equal(isSameDay, false)
+        })
+    })
+
 });
